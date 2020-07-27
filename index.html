@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <script
+      src="https://kit.fontawesome.com/3cbb107447.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header>
+      <h1 id="logo">WebShop</h1>
+      <nav>
+        <ul>
+          <li>
+            <a href="#"
+              >My Cart <i class="fa fa-shopping-cart" aria-hidden="true"></i
+            ></a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <div class="wraper">
+        <div class="section_header">
+          <h2>Shopping Cart</h2>
+        </div>
+        <div class="cat_content">
+          <table>
+            <thead>
+              <td>Produit</td>
+              <td>Prix</td>
+              <td>Quantité</td>
+              <td>Supprimez</td>
+              <td>Ajoutez aux favoris</td>
+              <td>Sous Total</td>
+            </thead>
+            <tbody class="cart-container">
+              <tr class="item">
+                <td class="product">AirDots</td>
+                <td class="price">1600</td>
+                <td>
+                  <input type="number" class="quantity" value="3" min="1" />
+                </td>
+                <td><i class="fa fa-trash" aria-hidden="true"></i></td>
+                <td><i class="fa fa-heart-o" aria-hidden="true"></i></td>
+                <td class="sub-total">1600</td>
+              </tr>
+              <tr class="item">
+                <td class="product">MiBand</td>
+                <td class="price">3700</td>
+                <td>
+                  <input type="number" class="quantity" value="1" min="1" />
+                </td>
+                <td><i class="fa fa-trash" aria-hidden="true"></i></td>
+                <td><i class="fa fa-heart-o" aria-hidden="true"></i></td>
+                <td class="sub-total">7400</td>
+              </tr>
+              <tr class="item">
+                <td class="product">Redmi Note Pro</td>
+                <td class="price">35000</td>
+                <td>
+                  <input type="number" class="quantity" value="1" min="1" />
+                </td>
+                <td><i class="fa fa-trash" aria-hidden="true"></i></td>
+                <td><i class="fa fa-heart-o" aria-hidden="true"></i></td>
+                <td class="sub-total">35000</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>Total</td>
+                <td class="total-price">874526</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <p>Made with ☕ in Algiers.</p>
+    </footer>
+    <script src="/js/main.js"></script>
+  </body>
+</html>

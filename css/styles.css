@@ -1,0 +1,119 @@
+/* color palet
+#23374d
+#1089ff
+#b8b7b7
+#eeeeee
+#fd006a */
+
+/* Head Section */
+
+body {
+  background-color: #b8b7b7;
+  font-family: "Montserrat", sans-serif;
+  width: 100%;
+  margin: 0;
+}
+
+header {
+  background-color: #23344d;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  /* position: sticky; */
+  top: 0;
+}
+
+#logo {
+  font-size: 2rem;
+  color: #eeeeee;
+  margin: 10px;
+}
+
+nav {
+  display: flex;
+  position: absolute;
+  right: 0;
+}
+nav ul {
+  list-style-type: none;
+}
+
+nav li a {
+  display: inline;
+  justify-content: flex-end;
+  color: #eeeeee;
+  margin: 10px;
+  text-decoration: none;
+  font-weight: 800;
+}
+
+/* Main Section */
+.wraper {
+  margin: 2rem;
+  text-align: center;
+}
+
+.section_header {
+  background-color: #1089ff;
+  color: #eeeeee;
+  padding: 2rem;
+  margin: auto;
+  width: 80%;
+  border-radius: 25px 25px 0 0;
+}
+.cat_content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  background-color: #eeeeee;
+  padding: 2rem;
+  margin: auto;
+  width: 80%;
+  border-radius: 0 0 25px 25px;
+}
+table {
+  width: 100%;
+}
+thead {
+  font-weight: 700;
+}
+td {
+  padding: 1rem 0;
+}
+tfoot {
+  text-align: center;
+  font-weight: 700;
+}
+tfoot tr td {
+  border-top: 2px solid black;
+}
+
+/* Footer Section  */
+
+footer {
+  background-color: #23374d;
+  text-align: center;
+  color: #eeeeee;
+  height: 50px;
+  width: 100%;
+  margin-bottom: 0;
+}
+
+/* cart */
+.item td {
+  border-top: 1px solid gray;
+}
+
+.liked {
+  color: #fd006a;
+}
+.quantity {
+  border: 2px solid #1089ff;
+  border-radius: 5px;
+  width: 40px;
+  height: 36px;
+  text-align: center;
+}
