@@ -14,17 +14,54 @@ for (let i = 0; i < removeButton.length; i++) {
 }
 
 // Updating quantity
+let plusButton = document.getElementsByClassName("plus");
+let minusButton = document.getElementsByClassName("minus");
+let cartContainer = document.querySelector("tbody");
+let itemContainer = cartContainer.getElementsByClassName("item");
+let totalPrice = 0;
+let qtn = 1;
 
-let quantityInputs = document.getElementsByClassName("quantity");
-for (let i = 0; i < quantityInputs.length; i++) {
-  let input = quantityInputs[i];
-  input.addEventListener("change", quantityChanged);
-
-  function quantityChanged() {
+for (let i = 0; i < plusButton.length; i++) {
+  let itemRow = itemContainer[i];
+  let btnPlus = plusButton[i];
+  btnPlus.addEventListener("click", function (event) {
+    let itemQtn = itemRow.getElementsByClassName("quantity")[0];
+    if (qtn < 1) {
+      qtn = 1;
+    }
+    itemQtn.innerText = qtn++;
     updateCartTotal();
     updateSubTotal();
-  }
+  });
 }
+
+for (let i = 0; i < minusButton.length; i++) {
+  let itemRow = itemContainer[i];
+  let btnMinus = minusButton[i];
+  btnMinus.addEventListener("click", function (event) {
+    let itemQtn = itemRow.getElementsByClassName("quantity")[0];
+    if (qtn < 1) {
+      qtn = 1;
+    }
+    itemQtn.innerText = qtn--;
+
+    updateCartTotal();
+    updateSubTotal();
+  });
+}
+
+//Old solution with Input numbers
+
+// let quantityInputs = document.getElementsByClassName("quantity");
+// for (let i = 0; i < quantityInputs.length; i++) {
+//   let input = quantityInputs[i];
+//   input.addEventListener("change", quantityChanged);
+
+//   function quantityChanged() {
+//     updateCartTotal();
+//     updateSubTotal();
+//   }
+// }
 
 // Updateing Cart Total
 
@@ -38,7 +75,10 @@ function updateCartTotal() {
     let itemQtn = itemRow.getElementsByClassName("quantity")[0];
 
     let price = parseInt(itemPrice.innerText);
-    let quantity = parseInt(itemQtn.value);
+    let quantity = parseInt(itemQtn.innerText);
+
+    //Old solution with Input numbers
+    // let quantity = parseInt(itemQtn.value);
     totalPrice += price * quantity;
   }
   document.getElementsByClassName("total-price")[0].innerText =
@@ -58,7 +98,10 @@ function updateSubTotal() {
     let itemQtn = itemRow.getElementsByClassName("quantity")[0];
 
     let price = parseInt(itemPrice.innerText);
-    let quantity = parseInt(itemQtn.value);
+    let quantity = parseInt(itemQtn.innerText);
+
+    //Old solution with Input numbers
+    // let quantity = parseInt(itemQtn.value);
     subPrice.push(price * quantity);
     document.getElementsByClassName("sub-total")[i].innerText =
       subPrice[i] + " DZD";
@@ -67,14 +110,22 @@ function updateSubTotal() {
 updateSubTotal();
 
 // Liking Items
+function like() {
+  let likeButton = document.getElementsByClassName("fa-heart-o");
 
-let likeButton = document.getElementsByClassName("fa-heart-o");
-
-for (let i = 0; i < likeButton.length; i++) {
-  let btnLike = likeButton[i];
-  btnLike.addEventListener("click", function (event) {
-    let btnLiked = event.target;
-    btnLiked.classList.remove("fa-heart-o");
-    btnLiked.classList.add("liked", "fa-heart");
-  });
+  for (let i = 0; i < likeButton.length; i++) {
+    let btnLike = likeButton[i];
+    btnLike.addEventListener("click", function (event) {
+      let btnLiked = event.target;
+      if (btnLiked.classList.contains("fa-heart-o")) {
+        btnLiked.classList.remove("fa-heart-o");
+        btnLiked.classList.add("liked", "fa-heart");
+      } else {
+        btnLiked.classList.remove("liked", "fa-heart");
+        btnLiked.classList.add("fa-heart-o");
+      }
+    });
+  }
 }
+
+like();
