@@ -19,17 +19,18 @@ let minusButton = document.getElementsByClassName("minus");
 let cartContainer = document.querySelector("tbody");
 let itemContainer = cartContainer.getElementsByClassName("item");
 let totalPrice = 0;
-let qtn = 1;
 
 for (let i = 0; i < plusButton.length; i++) {
   let itemRow = itemContainer[i];
   let btnPlus = plusButton[i];
   btnPlus.addEventListener("click", function (event) {
     let itemQtn = itemRow.getElementsByClassName("quantity")[0];
-    if (qtn < 1) {
-      qtn = 1;
+    if (parseInt(itemQtn.innerText) < 1) {
+      itemQtn.innerText = 1;
+    } else {
+      itemQtn.innerText++;
     }
-    itemQtn.innerText = qtn++;
+
     updateCartTotal();
     updateSubTotal();
   });
@@ -40,11 +41,11 @@ for (let i = 0; i < minusButton.length; i++) {
   let btnMinus = minusButton[i];
   btnMinus.addEventListener("click", function (event) {
     let itemQtn = itemRow.getElementsByClassName("quantity")[0];
-    if (qtn < 1) {
-      qtn = 1;
+    if (parseInt(itemQtn.innerText) <= 1) {
+      itemQtn.innerText = 1;
+    } else {
+      itemQtn.innerText--;
     }
-    itemQtn.innerText = qtn--;
-
     updateCartTotal();
     updateSubTotal();
   });
